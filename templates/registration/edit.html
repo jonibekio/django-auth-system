@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+    <h1>Profilni tahrirlash</h1>
+    <p>Ism, familiya va manzilni yangilang.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button button-primary" type="submit">Saqlash</button>
+    </form>
+{% endblock %}

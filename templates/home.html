@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Bosh sahifa</h1>
+
+    {% if user.is_authenticated %}
+        <p>Xush kelibsiz, <strong>{{ user.username }}</strong>.</p>
+        {% if user.avatar %}
+            <p>Sizning avatar rasmingiz:</p>
+            <img src="{{ user.avatar.url }}" alt="Avatar" style="max-width: 180px; border-radius: 12px; border: 1px solid #d9e1ec;">
+        {% endif %}
+    {% else %}
+        <p>Platformaga kirish yoki yangi akkaunt yaratish uchun tugmalardan foydalaning.</p>
+        <div style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap;">
+            <a class="button button-primary" href="{% url 'login' %}">Kirish</a>
+            <a class="button" href="{% url 'signup' %}">Royxatdan otish</a>
+        </div>
+    {% endif %}
+{% endblock %}

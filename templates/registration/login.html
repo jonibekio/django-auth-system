@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <h1>Kirish</h1>
+    <p>Akkauntingizga kirish uchun login ma'lumotlarini kiriting.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{{ next }}">
+        <button class="button button-primary" type="submit">Kirish</button>
+    </form>
+{% endblock %}
